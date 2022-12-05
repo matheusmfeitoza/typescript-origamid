@@ -53,3 +53,18 @@
 </br>
 
 
+### Anotações
+
+ Anotações em variáveis, para explicitar seu tipo.
+
+Exemplo: `const produto: string = "Caixa";`
+
+Para mais exemplos veja na pasta **02_Modulo**
+
+### Inferência
+
+É quando o typescript já sabe qual é o tipo e por baixo dos panos realiza a anotação do mesmo.
+
+exemplo:  `const produto = "Caixa";`
+
+
