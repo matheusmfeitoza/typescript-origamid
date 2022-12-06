@@ -96,3 +96,105 @@ function totalMudou() {
   }
 }
 input?.addEventListener("keyup", totalMudou);
+
+// Exercício Union types
+
+// 1 - Crie uma função chamada toNumber
+// 2 - A função pode receber number | string
+// 3 - Se a função receber um número, retorne um número
+// 4 - Se a função receber uma string, retorne um número
+// 5 - Se ela receber algo diferente, retorne um erro. (throw "value deve ser um número ou uma string")
+
+const toNumber = (value: number | string) => {
+  if (typeof value === "string") {
+    return Number(value);
+  } else if (typeof value === "number") {
+    return value;
+  } else {
+    throw "value deve ser um número ou uma string";
+  }
+};
+
+console.log(toNumber("300"));
+
+type ObjectProps = {
+  nome: string;
+  valor: number;
+  ativo: boolean;
+};
+
+// E usar da seguinte maneira
+
+function validaUsuario(user: ObjectProps) {
+  console.log(`User: ${user.nome}, está: ${user.ativo ? "ativo" : "inativo"}`);
+}
+
+validaUsuario({
+  nome: "Lucas",
+  valor: 1,
+  ativo: false,
+});
+
+//Exercício de interface
+
+/*
+
+Defina a interface da API: https://api.origamid.dev/json/notebook.json e mostre os dados na tela.
+async function fetchProduct() {
+  const response = await fetch('https://api.origamid.dev/json/notebook.json');
+  const data = await response.json();
+  showProduct(data);
+}
+
+fetchProduct();
+
+function showProduct(data) {
+  document.body.innerHTML = `
+    <div>
+      <h2>${data.name}</h2>
+    </div>
+  `;
+}
+*/
+
+interface iDataEmpresaProps {
+  nome: string;
+  fundacao: number;
+  pais: string;
+}
+
+interface iDataProps {
+  nome: string;
+  preco: number;
+  descricao: string;
+  garantia?: string;
+  seguroAcidentes?: string;
+  empresaFabricante: iDataEmpresaProps;
+  empresaMontadora: iDataEmpresaProps;
+}
+
+async function fetchProduct() {
+  const response = await fetch("https://api.origamid.dev/json/notebook.json");
+  const data = await response.json();
+  showProduct(data);
+  console.log(data);
+}
+
+fetchProduct();
+
+function showProduct(data: iDataProps) {
+  document.body.innerHTML = `
+    <div>
+        <h2>${data.nome}</h2>
+        <p>R$ ${data.preco} </p>
+        <p>${data.descricao} </p>
+
+        <div>
+          <h3>Fabricante: ${data.empresaFabricante.nome}</h3>
+        </div>
+        <div>
+          <h3>Montadora: ${data.empresaMontadora.nome}</h3>
+        </div>
+    </div>
+  `;
+}
