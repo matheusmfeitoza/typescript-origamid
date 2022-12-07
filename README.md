@@ -178,3 +178,41 @@ function showProduct(data: iDataProps) {
 ~~~
 
 
+### Arrays
+
+Para lidar com arrays, podemos especificar o tipo destas maneiras:
+
+```typescript
+const livros : string[] = ['Konto', 'Domnen', 'Harry Potter'];
+```
+
+ou
+
+```typescript
+const livros : Array<string> = ['Konto', 'Domnen', 'Harry Potter'];
+```
+
+### Null e Undefined
+
+**Null**
+
+null é um tipo primitivo que representa a ausência de valor. É comum em funções do DOM que fazem uma busca, retornarem null quando não são bem sucedidas.
+
+Podemos prevenir tipos null usando `if` e ou `optional chaining`
+
+```typescript
+
+const button = document.querySelector('button');
+
+if(button) {
+  button.click();
+}
+
+if(button !== null){
+  button.click();
+}
+
+button?.click();
+
+```
+
