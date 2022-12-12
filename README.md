@@ -216,3 +216,31 @@ button?.click();
 
 ```
 
+## Optional Chaining
+
+É o operador `?` usado para casos onde podemos checar previamente se um propriedade existe.
+
+Exemplo: 
+
+```typescript
+
+button?.click()
+
+```
+
+Se o button existir e for diferente de null ou undefined, poderemos acessar o método click, evitando erros na compilação.
+
+## Typeof e instanceof 
+
+**Typeof**
+
+Usamos para definir se o retorno é  um tipo esperado, como `string`, `number` ,`boolean` ou `object`
+
+Exemplos no 02_Modulo.
+
+**Instanceof**
+
+Com a palavra-chave instanceof podemos verificar se um objeto é uma instância (foi construído ou herda) de uma função construtora (class).
+
+Exercício no módulo 03
+
