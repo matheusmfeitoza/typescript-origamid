@@ -94,3 +94,13 @@ const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
 const fruits = ['Banana', 'Maçã', 'Mamão', 'Laranja', 'Uva', 'Melancia'];
 console.log(firstFive(fruits));
 console.log(firstFive(numbers));
+function arredondaValor(valor) {
+    if (typeof valor === 'string') {
+        return Math.ceil(Number(valor)).toString();
+    }
+    else {
+        return Math.ceil(valor);
+    }
+}
+console.log(arredondaValor(3.8));
+console.log(arredondaValor('7.2'));

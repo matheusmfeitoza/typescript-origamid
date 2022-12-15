@@ -115,3 +115,24 @@ const fruits = ['Banana', 'Maçã', 'Mamão','Laranja','Uva','Melancia'];
 
 console.log(firstFive(fruits));
 console.log(firstFive(numbers));
+
+// Funções
+//Exercício 
+
+/*
+// Crie uma função que arredonda um valor passado para cima.
+// A função pode receber string ou number.
+// A função deve retornar o mesmo tipo que ela receber.
+ */
+function arredondaValor(valor: number): number;
+function arredondaValor(valor: string): string ;
+function arredondaValor(valor: string | number): string | number {
+  if(typeof valor === 'string') {
+    return Math.ceil(Number(valor)).toString();
+  }else {
+    return Math.ceil(valor);
+  }
+}
+
+console.log(arredondaValor(3.8));
+console.log(arredondaValor('7.2'));
