@@ -84,3 +84,34 @@ function handleClick(event: PointerEvent) {
 }
 
 getBtnMobile?.addEventListener("pointerdown", handleClick);
+
+
+//Generics
+
+function retornar<T>(objeto: T) {
+  return {data: objeto, type: typeof objeto  }
+}
+
+console.log(retornar('Caderno'));
+console.log(retornar(200));
+console.log(retornar(true));
+
+function returnCurrentTargetItem<T extends HTMLElement>(item: T) {
+  return {
+    texto: item.innerText,
+    elemento: item
+  }
+}
+const link1 = document.querySelector<HTMLAnchorElement>('.orig');
+
+if(link1) console.log(returnCurrentTargetItem(link1));
+
+function firstFive<T>(list: T[]): T[]{
+  return list.slice(0,5);
+}
+
+const numbers = [1,2,3,4,5,6,7,8];
+const fruits = ['Banana', 'Maçã', 'Mamão','Laranja','Uva','Melancia'];
+
+console.log(firstFive(fruits));
+console.log(firstFive(numbers));

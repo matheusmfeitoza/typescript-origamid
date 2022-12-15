@@ -244,3 +244,6 @@ Com a palavra-chave instanceof podemos verificar se um objeto é uma instância 
 
 Exercício no módulo 03
 
+## Generics
+
+Um tipo genérico é uma forma de declararmos um parâmetro para a nossa função, classe ou interface. Esse tipo poderá ser indicado no momento do uso da função através de `<Tipo>`.
