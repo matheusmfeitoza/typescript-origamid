@@ -104,3 +104,38 @@ function arredondaValor(valor) {
 }
 console.log(arredondaValor(3.8));
 console.log(arredondaValor('7.2'));
+// User Type Guard
+//Exercício 
+/*
+// 1 - Faça um fetch da API: https://api.origamid.dev/json/cursos.json
+// 2 - Defina a interface da API
+// 3 - Crie um Type Guard, que garanta que a API possui nome, horas e tags
+// 4 - Use Type Guards para garantir a Type Safety do código
+// 5 - Preencha os dados da API na tela.
+*/
+async function getDataFromApi(urlAPI) {
+    const response = await fetch(urlAPI);
+    const data = await response.json();
+    handleDataFromApi(data);
+}
+getDataFromApi('https://api.origamid.dev/json/cursos.json');
+function ApiDataGuard(data) {
+    if (data && typeof data === 'object' && 'nome' in data && 'horas' in data && 'tags' in data) {
+        return true;
+    }
+    else
+        return false;
+}
+function handleDataFromApi(data) {
+    if (Array.isArray(data)) {
+        data.filter(ApiDataGuard).forEach(curso => {
+            document.body.innerHTML += `
+  <div>
+    <h2>${curso.nome}</h2>
+    <p>Horas de curso: ${curso.horas}</p>
+    <span>${curso.tags.join(', ')}</span> 
+  </div>
+  `;
+        });
+    }
+}
